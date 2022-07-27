@@ -1,3 +1,3 @@
 class AppAsset {
-  static const String cancel = 'assets/icons/cancel.svg';
+  static const String backgroundImage = 'assets/images/bg.png';
 }
