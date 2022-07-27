@@ -62,22 +62,21 @@ flutter:
     - assets/icons/
     - .env
 
-  # fonts: 
-    # - family: Roboto
-    #   fonts:
-    #     - asset: assets/fonts/roboto/Roboto-Black.ttf
-    #     - asset: assets/fonts/roboto/Roboto-Bold.ttf
-    #     - asset: assets/fonts/roboto/Roboto-Medium.ttf
-    #     - asset: assets/fonts/roboto/Roboto-Regular.ttf
-    #     - asset: assets/fonts/roboto/Roboto-Thin.ttf
-    # - family: Montserrat
-    #   fonts:
-    #     - asset: assets/fonts/montserrat/static/Montserrat-Black.ttf
-    #     - asset: assets/fonts/montserrat/static/Montserrat-Bold.ttf
-    #     - asset: assets/fonts/montserrat/static/Montserrat-Italic.ttf
-    #     - asset: assets/fonts/montserrat/static/Montserrat-Medium.ttf
-    #     - asset: assets/fonts/montserrat/static/Montserrat-Regular.ttf
-    #     - asset: assets/fonts/montserrat/static/Montserrat-SemiBold.ttf
-    #     - asset: assets/fonts/montserrat/static/Montserrat-Thin.ttf
-    #     - asset: assets/fonts/montserrat/static/Montserrat-ExtraBold.ttf 
-    #     - asset: assets/fonts/montserrat/static/Montserrat-ExtraLight.ttf
+  fonts: 
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/roboto/Roboto-Black.ttf
+        - asset: assets/fonts/roboto/Roboto-Bold.ttf
+        - asset: assets/fonts/roboto/Roboto-Medium.ttf
+        - asset: assets/fonts/roboto/Roboto-Regular.ttf
+        - asset: assets/fonts/roboto/Roboto-Thin.ttf
+    - family: Urbanist
+      fonts:
+        - asset: assets/fonts/urbanist/Urbanist-Black.ttf
+        - asset: assets/fonts/urbanist/Urbanist-Bold.ttf
+        - asset: assets/fonts/urbanist/Urbanist-Italic.ttf
+        - asset: assets/fonts/urbanist/Urbanist-Medium.ttf
+        - asset: assets/fonts/urbanist/Urbanist-Regular.ttf
+        - asset: assets/fonts/urbanist/Urbanist-Thin.ttf
+
+       
