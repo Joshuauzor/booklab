@@ -31,10 +31,10 @@ class _ChartViewState extends State<ChartView> {
             groupsSpace: 10,
             barGroups: [
               BarChartGroupData(
-                x: 4,
+                x: 20,
                 barRods: [
                   BarChartRodData(
-                    toY: 2,
+                    toY: 6,
                     width: 15,
                     color: AppColors.primaryColor,
                   ),
