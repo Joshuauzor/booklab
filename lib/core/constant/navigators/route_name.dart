@@ -7,4 +7,5 @@ class RouteName {
   static const String descriptionView = 'descriptionView';
   static const String onlineStore = 'onlineStore';
   static const String customStore = 'customStore';
+  static const String chartView = 'chartView';
 }

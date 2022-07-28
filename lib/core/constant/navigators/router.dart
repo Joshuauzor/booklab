@@ -52,6 +52,12 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         viewToShow: const CustomStore(),
       );
 
+    case RouteName.chartView:
+      return _getPageRoute(
+        routeName: settings.name!,
+        viewToShow: const ChartView(),
+      );
+
     default:
       return MaterialPageRoute<dynamic>(
         builder: (_) => Scaffold(
