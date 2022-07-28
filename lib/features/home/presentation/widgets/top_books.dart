@@ -44,7 +44,7 @@ class TopBooks extends StatelessWidget {
                   ),
                   child: Center(
                     child: TextRegular(
-                      'Buy',
+                      'Edit',
                       fontWeight: FontWeight.w700,
                       fontSize: 16,
                       color: AppColors.white,

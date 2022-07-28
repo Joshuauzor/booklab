@@ -32,7 +32,7 @@ class AppTabViewState extends State<AppTabView> {
     final _widgetOptions = <Widget?>[
       const HomeView(),
       Container(),
-      Container(),
+      const OnlineStore(),
       Container(),
     ];
 
@@ -60,10 +60,10 @@ class AppTabViewState extends State<AppTabView> {
             icon: AppAssets.home,
           ),
           FABBottomAppBarItem(
-            icon: AppAssets.bookmark,
+            icon: AppAssets.stat,
           ),
           FABBottomAppBarItem(
-            icon: AppAssets.stat,
+            icon: AppAssets.bookmark,
           ),
           FABBottomAppBarItem(
             icon: AppAssets.explore,

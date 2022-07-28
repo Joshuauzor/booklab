@@ -1,5 +1,4 @@
 import 'package:booklab/app/styles/fonts.dart';
-import 'package:booklab/app/view/widget/widget.dart';
 import 'package:booklab/core/core.dart';
 import 'package:booklab/features/features.dart';
 import 'package:flutter/material.dart';
@@ -46,16 +45,7 @@ class _HomeViewState extends State<HomeView> {
                     ],
                   ),
                   const Gap(21),
-                  InputField(
-                    prefix: Padding(
-                      padding: const EdgeInsets.only(
-                        right: 10,
-                      ),
-                      child: SvgPicture.asset(AppAssets.search),
-                    ),
-                    controller: _searchController,
-                    placeholder: 'Search...',
-                  ),
+                  SearchBar(searchController: _searchController),
                 ],
               ),
             ),
@@ -72,13 +62,19 @@ class _HomeViewState extends State<HomeView> {
                           left: 25,
                         ),
                         child: Row(
-                          children: const [
-                            TopBooks(
-                              amount: '#654,42',
-                              image: AppAssets.silence,
+                          children: [
+                            GestureDetector(
+                              onTap: () => Navigator.pushNamed(
+                                context,
+                                RouteName.descriptionView,
+                              ),
+                              child: const TopBooks(
+                                amount: '#654,42',
+                                image: AppAssets.silence,
+                              ),
                             ),
-                            Gap(10),
-                            TopBooks(
+                            const Gap(10),
+                            const TopBooks(
                               amount: '#504,42',
                               image: AppAssets.bitter,
                             ),
@@ -157,6 +153,13 @@ class _HomeViewState extends State<HomeView> {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Add your onPressed code here!
+        },
+        backgroundColor: AppColors.white,
+        child: SvgPicture.asset(AppAssets.plus),
       ),
     );
   }

@@ -12,4 +12,6 @@ class AppColors {
   static const tenBlack = Color(0x1a000000);
   static const feintDart = Color(0xff1F2C37);
   static const secondaryColor = Color(0xffEBE6DE);
+  static const greyLight = Color(0xff06070D);
+  static const lightBlue = Color(0xff6A6A8B);
 }
