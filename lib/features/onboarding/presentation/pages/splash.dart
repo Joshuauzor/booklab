@@ -47,7 +47,7 @@ class _SplashState extends State<Splash> {
       backgroundColor: AppColors.primaryColor,
       body: Center(
         child: Image.asset(
-          AppAsset.backgroundImage,
+          AppAssets.backgroundImage,
         ),
       ),
     );
