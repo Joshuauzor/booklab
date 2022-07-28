@@ -33,16 +33,18 @@ class _BusyButtonState extends State<BusyButton> {
         height: widget.height ?? 55,
         width: widget.width ?? double.infinity,
         decoration: BoxDecoration(
-            color: widget.deactivate == true
-                ? const Color(0xffBED7AA)
-                : AppColors.primaryColor,
-            borderRadius: BorderRadius.circular(100),
-            boxShadow: const [
-              BoxShadow(
-                  blurRadius: 24,
-                  offset: Offset(4, 8),
-                  color: AppColors.twenntyFiveK)
-            ]),
+          color: widget.deactivate == true
+              ? const Color(0xffBED7AA)
+              : AppColors.primaryColor,
+          borderRadius: BorderRadius.circular(100),
+          boxShadow: const [
+            BoxShadow(
+              blurRadius: 24,
+              offset: Offset(4, 8),
+              color: AppColors.twenntyFiveK,
+            )
+          ],
+        ),
         child: Center(
           child: widget.loading
               ? const CupertinoActivityIndicator()

@@ -1,5 +1,4 @@
 import 'package:booklab/core/core.dart';
-import 'package:booklab/features/auth/presentation/pages/pages.dart';
 import 'package:booklab/features/features.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +14,18 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(
         routeName: settings.name!,
         viewToShow: const LoginScreen(),
+      );
+
+    case RouteName.signup:
+      return _getPageRoute(
+        routeName: settings.name!,
+        viewToShow: const SignupScreen(),
+      );
+
+    case RouteName.appTabView:
+      return _getPageRoute(
+        routeName: settings.name!,
+        viewToShow: const AppTabView(),
       );
 
     default:

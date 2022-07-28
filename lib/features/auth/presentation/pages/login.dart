@@ -2,8 +2,8 @@ import 'package:booklab/app/styles/fonts.dart';
 import 'package:booklab/app/view/widget/busy_button.dart';
 import 'package:booklab/app/view/widget/widget.dart';
 import 'package:booklab/core/core.dart';
+import 'package:booklab/features/features.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -69,31 +69,25 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
             const Gap(14),
-            TextRegular(
-              'Don’t have an account? Sign in',
-              fontWeight: FontWeight.w500,
+            GestureDetector(
+              onTap: () => Navigator.pushNamed(context, RouteName.signup),
+              child: TextRegular(
+                'Don’t have an account? Sign up',
+                fontWeight: FontWeight.w500,
+              ),
             ),
             Gap(screenHeight(context) * 0.04),
-            BusyButton(title: 'Login', onpress: () {}),
+            BusyButton(
+              title: 'Login',
+              onpress: () {
+                Navigator.pushReplacementNamed(
+                  context,
+                  RouteName.appTabView,
+                );
+              },
+            ),
             Gap(screenHeight(context) * 0.03),
-            Container(
-              height: 60,
-              width: 60,
-              decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: BorderRadius.circular(7),
-                boxShadow: const [
-                  BoxShadow(
-                    offset: Offset(0, 4),
-                    blurRadius: 2,
-                    color: AppColors.tenBlack,
-                  )
-                ],
-              ),
-              child: SvgPicture.asset(
-                AppAssets.fingerprint,
-              ),
-            )
+            const PhoneIdVerification()
           ],
         ),
       ),
