@@ -9,4 +9,5 @@ class AppColors {
   static const greyScale = Color(0xff212121);
   static const dartBrown = Color(0xff4A2719);
   static const twenntyFiveK = Color(0x405F351F);
+  static const tenBlack = Color(0x1a000000);
 }

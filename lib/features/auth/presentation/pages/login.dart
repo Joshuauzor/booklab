@@ -3,6 +3,7 @@ import 'package:booklab/app/view/widget/busy_button.dart';
 import 'package:booklab/app/view/widget/widget.dart';
 import 'package:booklab/core/core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -27,12 +28,12 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         child: Column(
           children: [
-            const Gap(171),
+            Gap(screenHeight(context) * 0.15),
             TextBold(
               'Login to your Account',
               fontSize: 40,
             ),
-            const Gap(69),
+            Gap(screenHeight(context) * 0.03),
             InputField(
               controller: _emailController,
               placeholder: 'email@email.com',
@@ -72,8 +73,27 @@ class _LoginScreenState extends State<LoginScreen> {
               'Don’t have an account? Sign in',
               fontWeight: FontWeight.w500,
             ),
-            const Gap(70),
+            Gap(screenHeight(context) * 0.04),
             BusyButton(title: 'Login', onpress: () {}),
+            Gap(screenHeight(context) * 0.03),
+            Container(
+              height: 60,
+              width: 60,
+              decoration: BoxDecoration(
+                color: AppColors.white,
+                borderRadius: BorderRadius.circular(7),
+                boxShadow: const [
+                  BoxShadow(
+                    offset: Offset(0, 4),
+                    blurRadius: 2,
+                    color: AppColors.tenBlack,
+                  )
+                ],
+              ),
+              child: SvgPicture.asset(
+                AppAssets.fingerprint,
+              ),
+            )
           ],
         ),
       ),
