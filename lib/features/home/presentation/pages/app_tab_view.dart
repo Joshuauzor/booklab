@@ -30,7 +30,7 @@ class AppTabViewState extends State<AppTabView> {
   @override
   Widget build(BuildContext context) {
     final _widgetOptions = <Widget?>[
-      Container(),
+      const HomeView(),
       Container(),
       Container(),
       Container(),

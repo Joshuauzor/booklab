@@ -28,6 +28,12 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         viewToShow: const AppTabView(),
       );
 
+    case RouteName.homeView:
+      return _getPageRoute(
+        routeName: settings.name!,
+        viewToShow: const HomeView(),
+      );
+
     default:
       return MaterialPageRoute<dynamic>(
         builder: (_) => Scaffold(

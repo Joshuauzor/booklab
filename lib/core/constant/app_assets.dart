@@ -11,4 +11,6 @@ class AppAssets {
   static const String notification = 'assets/icons/notification.svg';
   static const String search = 'assets/icons/search.svg';
   static const String avatar = 'assets/images/avatar.png';
+  static const String silence = 'assets/images/silence.png';
+  static const String bitter = 'assets/images/bitter.png';
 }
