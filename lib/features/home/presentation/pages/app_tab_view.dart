@@ -33,7 +33,7 @@ class AppTabViewState extends State<AppTabView> {
       const HomeView(),
       Container(),
       const OnlineStore(),
-      Container(),
+      const CustomStore(),
     ];
 
     return Scaffold(

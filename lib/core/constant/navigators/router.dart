@@ -46,6 +46,12 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         viewToShow: const OnlineStore(),
       );
 
+    case RouteName.customStore:
+      return _getPageRoute(
+        routeName: settings.name!,
+        viewToShow: const CustomStore(),
+      );
+
     default:
       return MaterialPageRoute<dynamic>(
         builder: (_) => Scaffold(

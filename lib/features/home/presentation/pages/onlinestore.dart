@@ -36,6 +36,123 @@ class _OnlineStoreState extends State<OnlineStore> {
                 fontSize: 16,
               ),
               const Gap(15),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    Column(
+                      children: [
+                        const SizedBox(
+                          width: 89,
+                          child: BookCover(
+                            image: AppAssets.silence,
+                            height: 121,
+                            radius: 10,
+                          ),
+                        ),
+                        const Gap(18),
+                        TextRegular(
+                          "Starlight's Shadow",
+                          fontWeight: FontWeight.w600,
+                          fontSize: 10,
+                          fontFamily: AppFonts.roboto,
+                          color: AppColors.lighterAsh,
+                        ),
+                      ],
+                    ),
+                    const Gap(25),
+                    Column(
+                      children: [
+                        const SizedBox(
+                          width: 89,
+                          child: BookCover(
+                            image: AppAssets.silence,
+                            height: 121,
+                            radius: 10,
+                          ),
+                        ),
+                        const Gap(18),
+                        TextRegular(
+                          "Starlight's Shadow",
+                          fontWeight: FontWeight.w600,
+                          fontSize: 10,
+                          fontFamily: AppFonts.roboto,
+                          color: AppColors.lighterAsh,
+                        ),
+                      ],
+                    ),
+                    const Gap(25),
+                    Column(
+                      children: [
+                        const SizedBox(
+                          width: 89,
+                          child: BookCover(
+                            image: AppAssets.silence,
+                            height: 121,
+                            radius: 10,
+                          ),
+                        ),
+                        const Gap(18),
+                        TextRegular(
+                          "Starlight's Shadow",
+                          fontWeight: FontWeight.w600,
+                          fontSize: 10,
+                          fontFamily: AppFonts.roboto,
+                          color: AppColors.lighterAsh,
+                        ),
+                      ],
+                    ),
+                    const Gap(25),
+                    Column(
+                      children: [
+                        const SizedBox(
+                          width: 89,
+                          child: BookCover(
+                            image: AppAssets.bitter,
+                            height: 121,
+                            radius: 10,
+                          ),
+                        ),
+                        const Gap(18),
+                        TextRegular(
+                          "Starlight's Shadow",
+                          fontWeight: FontWeight.w600,
+                          fontSize: 10,
+                          fontFamily: AppFonts.roboto,
+                          color: AppColors.lighterAsh,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              const Gap(15),
+              TextRegular(
+                'Collection',
+                fontWeight: FontWeight.w600,
+                fontSize: 16,
+              ),
+              const Gap(15),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Expanded(
+                    child: BookCover(
+                      image: AppAssets.bitter,
+                      height: 215,
+                      radius: 10,
+                    ),
+                  ),
+                  Gap(36),
+                  Expanded(
+                    child: BookCover(
+                      image: AppAssets.silence,
+                      height: 215,
+                      radius: 10,
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
