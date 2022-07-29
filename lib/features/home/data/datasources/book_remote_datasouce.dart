@@ -48,10 +48,10 @@ class BookRemoteDataSourceImpl implements BookRemoteDataSource {
     required bool fromRemote,
   }) async {
     if (fromRemote) {
-      final aAuthToken = await localDataStorage.getAccessToken();
-      if (aAuthToken == null) {
-        throw const BookLabException.app('No access token found, please login');
-      }
+      // final aAuthToken = await localDataStorage.getAccessToken();
+      // if (aAuthToken == null) {
+      //   throw const BookLabException.app('No access token found, please login');
+      // }
       if (await networkInfo.isConnected) {
         final response = await client.getBooks(
           aApiKey: '2a6767e10fmshe3a21ff7dd95bb8p16e31ajsn099c5b319087',
