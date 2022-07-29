@@ -90,10 +90,7 @@ class _CustomStoreState extends State<CustomStore> {
                                 AppAssets.bookmark,
                                 color: AppColors.black,
                               ),
-                              SvgPicture.asset(
-                                AppAssets.bookmark,
-                                color: AppColors.black,
-                              ),
+                              const EditButton(),
                               TextRegular(
                                 '#1.90',
                                 fontWeight: FontWeight.w500,
