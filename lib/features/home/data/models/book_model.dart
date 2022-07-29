@@ -5,7 +5,7 @@ part 'book_model.g.dart';
 
 @JsonSerializable()
 class BookModel extends Books {
-  BookModel({
+  const BookModel({
     required int id,
     required String title,
     required String author,

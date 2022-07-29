@@ -1,3 +1,5 @@
+import 'package:booklab/core/errors/failure.dart';
+import 'package:booklab/features/features.dart';
 import 'package:booklab/features/home/domain/usecases/book_usecases.dart';
 import 'package:booklab/features/home/presentation/cubit/home_view_state.dart';
 import 'package:flutter/material.dart';
@@ -10,30 +12,21 @@ class HomeViewCubit extends Cubit<HomeViewState> {
   }) : super(const HomeViewState.initial());
 
   final BooksUseCase booksUseCase;
+  List<Books>? books;
 
   Future<void> getBooks(
     BuildContext context,
   ) async {
-    Logger().d('result 111');
     emit(const HomeViewState.loading());
     final result = await booksUseCase(const BooksUseCaseParam());
-    Logger().d('result hello');
-    Logger().d(result);
-    // emit(
-
-    // )
-  }
-
-  Future<void> init(
-    BuildContext context,
-  ) async {
-    Logger().d('result 111');
-    // emit(const HomeViewState.loading());
-    // final result = await booksUseCase(const BooksUseCaseParam());
-    Logger().d('result hello');
-    // Logger().d(result);
-    // emit(
-
-    // )
+    emit(
+      await result.fold(
+        (failure) => HomeViewState.error(ConvertFailureToString()(failure)),
+        (books) {
+          this.books = books;
+          return HomeViewState.loaded(books);
+        },
+      ),
+    );
   }
 }

@@ -4,6 +4,7 @@ class AppColors {
   static const white = Color(0xffFFFFFF);
   static const black = Color(0xff000000);
   static const primaryColor = Color(0xffD2AB6E);
+  static const deactivatedColor = Color.fromARGB(255, 240, 225, 202);
   static const ash = Color(0xffFAFAFA);
   static const lightAsh = Color(0xffC7C7C7);
   static const greyScale = Color(0xff212121);
@@ -15,4 +16,6 @@ class AppColors {
   static const greyLight = Color(0xff06070D);
   static const lightBlue = Color(0xff6A6A8B);
   static const lighterAsh = Color(0xff9A9A9A);
+  static const kDanger = Color(0xffDC4437);
+  static const kGreen = Color(0xff85BC2C);
 }

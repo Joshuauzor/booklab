@@ -153,6 +153,20 @@ class _InputFieldState extends State<InputField> {
             ],
           ),
         ),
+        if (widget.validationMessage != null)
+          Align(
+            alignment: Alignment.topLeft,
+            child: Text(
+              widget.validationMessage!,
+              style: const TextStyle(
+                color: Colors.red,
+                fontSize: 12,
+                fontFamily: AppFonts.urbanist,
+              ),
+            ),
+          )
+        else
+          const SizedBox(),
       ],
     );
   }

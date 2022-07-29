@@ -6,6 +6,7 @@ import 'package:booklab/features/home/domain/repositories/book_repositories.dart
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:logger/logger.dart';
 
 @LazySingleton(as: BookRepository)
 class BookRepositoryImpl implements BookRepository {
@@ -18,8 +19,8 @@ class BookRepositoryImpl implements BookRepository {
     required bool fromRemote,
   }) async {
     try {
-      final banks = await bookRemoteDataSource.getBooks(fromRemote: fromRemote);
-      return Right(banks);
+      final books = await bookRemoteDataSource.getBooks(fromRemote: fromRemote);
+      return Right(books);
     } catch (e) {
       if (e is BookLabException) {
         return Left(

@@ -7,7 +7,9 @@ import 'package:dio/dio.dart';
 import 'package:dio_smart_retry/dio_smart_retry.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:injectable/injectable.dart';
+import 'package:logger/logger.dart';
 
+// ignore: one_member_abstracts
 abstract class BookRemoteDataSource {
   Future<List<BookModel>> getBooks({
     required bool fromRemote,
@@ -57,6 +59,7 @@ class BookRemoteDataSourceImpl implements BookRemoteDataSource {
           aApiKey: '2a6767e10fmshe3a21ff7dd95bb8p16e31ajsn099c5b319087',
           aApiHost: 'bookshelves.p.rapidapi.com',
         );
+        Logger().d(response.response.data);
 
         return BookListModel.fromJson(
           response.response.data as Map<String, dynamic>,

@@ -34,7 +34,7 @@ class _BusyButtonState extends State<BusyButton> {
         width: widget.width ?? double.infinity,
         decoration: BoxDecoration(
           color: widget.deactivate == true
-              ? const Color(0xffBED7AA)
+              ? AppColors.deactivatedColor
               : AppColors.primaryColor,
           borderRadius: BorderRadius.circular(100),
           boxShadow: const [

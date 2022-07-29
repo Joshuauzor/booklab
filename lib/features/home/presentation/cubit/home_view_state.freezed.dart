@@ -22,11 +22,17 @@ class _$HomeViewStateTearOff {
     return const _$InitialHomeViewState();
   }
 
+  _$ErrorHomeViewState error(String error) {
+    return _$ErrorHomeViewState(
+      error,
+    );
+  }
+
   _$LoadingHomeViewState loading() {
     return const _$LoadingHomeViewState();
   }
 
-  _$LoadedHomeViewState loaded(List<dynamic> books) {
+  _$LoadedHomeViewState loaded(List<Books> books) {
     return _$LoadedHomeViewState(
       books,
     );
@@ -41,28 +47,32 @@ mixin _$HomeViewState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String error) error,
     required TResult Function() loading,
-    required TResult Function(List<dynamic> books) loaded,
+    required TResult Function(List<Books> books) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String error)? error,
     TResult Function()? loading,
-    TResult Function(List<dynamic> books)? loaded,
+    TResult Function(List<Books> books)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String error)? error,
     TResult Function()? loading,
-    TResult Function(List<dynamic> books)? loaded,
+    TResult Function(List<Books> books)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_$InitialHomeViewState value) initial,
+    required TResult Function(_$ErrorHomeViewState value) error,
     required TResult Function(_$LoadingHomeViewState value) loading,
     required TResult Function(_$LoadedHomeViewState value) loaded,
   }) =>
@@ -70,6 +80,7 @@ mixin _$HomeViewState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_$InitialHomeViewState value)? initial,
+    TResult Function(_$ErrorHomeViewState value)? error,
     TResult Function(_$LoadingHomeViewState value)? loading,
     TResult Function(_$LoadedHomeViewState value)? loaded,
   }) =>
@@ -77,6 +88,7 @@ mixin _$HomeViewState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_$InitialHomeViewState value)? initial,
+    TResult Function(_$ErrorHomeViewState value)? error,
     TResult Function(_$LoadingHomeViewState value)? loading,
     TResult Function(_$LoadedHomeViewState value)? loaded,
     required TResult orElse(),
@@ -143,8 +155,9 @@ class _$_$InitialHomeViewState implements _$InitialHomeViewState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String error) error,
     required TResult Function() loading,
-    required TResult Function(List<dynamic> books) loaded,
+    required TResult Function(List<Books> books) loaded,
   }) {
     return initial();
   }
@@ -153,8 +166,9 @@ class _$_$InitialHomeViewState implements _$InitialHomeViewState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String error)? error,
     TResult Function()? loading,
-    TResult Function(List<dynamic> books)? loaded,
+    TResult Function(List<Books> books)? loaded,
   }) {
     return initial?.call();
   }
@@ -163,8 +177,9 @@ class _$_$InitialHomeViewState implements _$InitialHomeViewState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String error)? error,
     TResult Function()? loading,
-    TResult Function(List<dynamic> books)? loaded,
+    TResult Function(List<Books> books)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -177,6 +192,7 @@ class _$_$InitialHomeViewState implements _$InitialHomeViewState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_$InitialHomeViewState value) initial,
+    required TResult Function(_$ErrorHomeViewState value) error,
     required TResult Function(_$LoadingHomeViewState value) loading,
     required TResult Function(_$LoadedHomeViewState value) loaded,
   }) {
@@ -187,6 +203,7 @@ class _$_$InitialHomeViewState implements _$InitialHomeViewState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_$InitialHomeViewState value)? initial,
+    TResult Function(_$ErrorHomeViewState value)? error,
     TResult Function(_$LoadingHomeViewState value)? loading,
     TResult Function(_$LoadedHomeViewState value)? loaded,
   }) {
@@ -197,6 +214,7 @@ class _$_$InitialHomeViewState implements _$InitialHomeViewState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_$InitialHomeViewState value)? initial,
+    TResult Function(_$ErrorHomeViewState value)? error,
     TResult Function(_$LoadingHomeViewState value)? loading,
     TResult Function(_$LoadedHomeViewState value)? loaded,
     required TResult orElse(),
@@ -210,6 +228,153 @@ class _$_$InitialHomeViewState implements _$InitialHomeViewState {
 
 abstract class _$InitialHomeViewState implements HomeViewState {
   const factory _$InitialHomeViewState() = _$_$InitialHomeViewState;
+}
+
+/// @nodoc
+abstract class _$$ErrorHomeViewStateCopyWith<$Res> {
+  factory _$$ErrorHomeViewStateCopyWith(_$ErrorHomeViewState value,
+          $Res Function(_$ErrorHomeViewState) then) =
+      __$$ErrorHomeViewStateCopyWithImpl<$Res>;
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$ErrorHomeViewStateCopyWithImpl<$Res>
+    extends _$HomeViewStateCopyWithImpl<$Res>
+    implements _$$ErrorHomeViewStateCopyWith<$Res> {
+  __$$ErrorHomeViewStateCopyWithImpl(
+      _$ErrorHomeViewState _value, $Res Function(_$ErrorHomeViewState) _then)
+      : super(_value, (v) => _then(v as _$ErrorHomeViewState));
+
+  @override
+  _$ErrorHomeViewState get _value => super._value as _$ErrorHomeViewState;
+
+  @override
+  $Res call({
+    Object? error = freezed,
+  }) {
+    return _then(_$ErrorHomeViewState(
+      error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_$ErrorHomeViewState implements _$ErrorHomeViewState {
+  const _$_$ErrorHomeViewState(this.error);
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'HomeViewState.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ErrorHomeViewState &&
+            const DeepCollectionEquality().equals(other.error, error));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$ErrorHomeViewStateCopyWith<_$ErrorHomeViewState> get copyWith =>
+      __$$ErrorHomeViewStateCopyWithImpl<_$ErrorHomeViewState>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String error) error,
+    required TResult Function() loading,
+    required TResult Function(List<Books> books) loaded,
+  }) {
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String error)? error,
+    TResult Function()? loading,
+    TResult Function(List<Books> books)? loaded,
+  }) {
+    return error?.call(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String error)? error,
+    TResult Function()? loading,
+    TResult Function(List<Books> books)? loaded,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_$InitialHomeViewState value) initial,
+    required TResult Function(_$ErrorHomeViewState value) error,
+    required TResult Function(_$LoadingHomeViewState value) loading,
+    required TResult Function(_$LoadedHomeViewState value) loaded,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_$InitialHomeViewState value)? initial,
+    TResult Function(_$ErrorHomeViewState value)? error,
+    TResult Function(_$LoadingHomeViewState value)? loading,
+    TResult Function(_$LoadedHomeViewState value)? loaded,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_$InitialHomeViewState value)? initial,
+    TResult Function(_$ErrorHomeViewState value)? error,
+    TResult Function(_$LoadingHomeViewState value)? loading,
+    TResult Function(_$LoadedHomeViewState value)? loaded,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _$ErrorHomeViewState implements HomeViewState {
+  const factory _$ErrorHomeViewState(String error) = _$_$ErrorHomeViewState;
+
+  String get error;
+  @JsonKey(ignore: true)
+  _$$ErrorHomeViewStateCopyWith<_$ErrorHomeViewState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -254,8 +419,9 @@ class _$_$LoadingHomeViewState implements _$LoadingHomeViewState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String error) error,
     required TResult Function() loading,
-    required TResult Function(List<dynamic> books) loaded,
+    required TResult Function(List<Books> books) loaded,
   }) {
     return loading();
   }
@@ -264,8 +430,9 @@ class _$_$LoadingHomeViewState implements _$LoadingHomeViewState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String error)? error,
     TResult Function()? loading,
-    TResult Function(List<dynamic> books)? loaded,
+    TResult Function(List<Books> books)? loaded,
   }) {
     return loading?.call();
   }
@@ -274,8 +441,9 @@ class _$_$LoadingHomeViewState implements _$LoadingHomeViewState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String error)? error,
     TResult Function()? loading,
-    TResult Function(List<dynamic> books)? loaded,
+    TResult Function(List<Books> books)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -288,6 +456,7 @@ class _$_$LoadingHomeViewState implements _$LoadingHomeViewState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_$InitialHomeViewState value) initial,
+    required TResult Function(_$ErrorHomeViewState value) error,
     required TResult Function(_$LoadingHomeViewState value) loading,
     required TResult Function(_$LoadedHomeViewState value) loaded,
   }) {
@@ -298,6 +467,7 @@ class _$_$LoadingHomeViewState implements _$LoadingHomeViewState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_$InitialHomeViewState value)? initial,
+    TResult Function(_$ErrorHomeViewState value)? error,
     TResult Function(_$LoadingHomeViewState value)? loading,
     TResult Function(_$LoadedHomeViewState value)? loaded,
   }) {
@@ -308,6 +478,7 @@ class _$_$LoadingHomeViewState implements _$LoadingHomeViewState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_$InitialHomeViewState value)? initial,
+    TResult Function(_$ErrorHomeViewState value)? error,
     TResult Function(_$LoadingHomeViewState value)? loading,
     TResult Function(_$LoadedHomeViewState value)? loaded,
     required TResult orElse(),
@@ -328,7 +499,7 @@ abstract class _$$LoadedHomeViewStateCopyWith<$Res> {
   factory _$$LoadedHomeViewStateCopyWith(_$LoadedHomeViewState value,
           $Res Function(_$LoadedHomeViewState) then) =
       __$$LoadedHomeViewStateCopyWithImpl<$Res>;
-  $Res call({List<dynamic> books});
+  $Res call({List<Books> books});
 }
 
 /// @nodoc
@@ -350,7 +521,7 @@ class __$$LoadedHomeViewStateCopyWithImpl<$Res>
       books == freezed
           ? _value.books
           : books // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<Books>,
     ));
   }
 }
@@ -361,7 +532,7 @@ class _$_$LoadedHomeViewState implements _$LoadedHomeViewState {
   const _$_$LoadedHomeViewState(this.books);
 
   @override
-  final List<dynamic> books;
+  final List<Books> books;
 
   @override
   String toString() {
@@ -390,8 +561,9 @@ class _$_$LoadedHomeViewState implements _$LoadedHomeViewState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function(String error) error,
     required TResult Function() loading,
-    required TResult Function(List<dynamic> books) loaded,
+    required TResult Function(List<Books> books) loaded,
   }) {
     return loaded(books);
   }
@@ -400,8 +572,9 @@ class _$_$LoadedHomeViewState implements _$LoadedHomeViewState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String error)? error,
     TResult Function()? loading,
-    TResult Function(List<dynamic> books)? loaded,
+    TResult Function(List<Books> books)? loaded,
   }) {
     return loaded?.call(books);
   }
@@ -410,8 +583,9 @@ class _$_$LoadedHomeViewState implements _$LoadedHomeViewState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function(String error)? error,
     TResult Function()? loading,
-    TResult Function(List<dynamic> books)? loaded,
+    TResult Function(List<Books> books)? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -424,6 +598,7 @@ class _$_$LoadedHomeViewState implements _$LoadedHomeViewState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_$InitialHomeViewState value) initial,
+    required TResult Function(_$ErrorHomeViewState value) error,
     required TResult Function(_$LoadingHomeViewState value) loading,
     required TResult Function(_$LoadedHomeViewState value) loaded,
   }) {
@@ -434,6 +609,7 @@ class _$_$LoadedHomeViewState implements _$LoadedHomeViewState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_$InitialHomeViewState value)? initial,
+    TResult Function(_$ErrorHomeViewState value)? error,
     TResult Function(_$LoadingHomeViewState value)? loading,
     TResult Function(_$LoadedHomeViewState value)? loaded,
   }) {
@@ -444,6 +620,7 @@ class _$_$LoadedHomeViewState implements _$LoadedHomeViewState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_$InitialHomeViewState value)? initial,
+    TResult Function(_$ErrorHomeViewState value)? error,
     TResult Function(_$LoadingHomeViewState value)? loading,
     TResult Function(_$LoadedHomeViewState value)? loaded,
     required TResult orElse(),
@@ -456,10 +633,10 @@ class _$_$LoadedHomeViewState implements _$LoadedHomeViewState {
 }
 
 abstract class _$LoadedHomeViewState implements HomeViewState {
-  const factory _$LoadedHomeViewState(List<dynamic> books) =
+  const factory _$LoadedHomeViewState(List<Books> books) =
       _$_$LoadedHomeViewState;
 
-  List<dynamic> get books;
+  List<Books> get books;
   @JsonKey(ignore: true)
   _$$LoadedHomeViewStateCopyWith<_$LoadedHomeViewState> get copyWith =>
       throw _privateConstructorUsedError;

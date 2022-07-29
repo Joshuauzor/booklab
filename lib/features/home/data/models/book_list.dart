@@ -7,9 +7,9 @@ class BookListModel {
 
   factory BookListModel.fromJson(Map<String, dynamic> json) => BookListModel(
         list: List<BookModel>.from(
-          (json['books'] as List).map(
+          (json['Books'] as List).map(
             (x) {
-              return BookListModel.fromJson(x);
+              return BookModel.fromJson(x);
             },
           ),
         ),
