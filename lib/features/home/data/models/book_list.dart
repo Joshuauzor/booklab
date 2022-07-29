@@ -1,4 +1,4 @@
-import 'package:booklab/features/home/models/book_model.dart';
+import 'package:booklab/features/home/data/models/book_model.dart';
 
 class BookListModel {
   BookListModel({
