@@ -1,15 +1,12 @@
 import 'package:booklab/app/styles/fonts.dart';
 import 'package:booklab/core/core.dart';
 import 'package:booklab/features/features.dart';
-import 'package:booklab/features/home/domain/usecases/usecases.dart';
 import 'package:booklab/features/home/presentation/cubit/home_view_cubit.dart';
 import 'package:booklab/features/home/presentation/cubit/home_view_state.dart';
-import 'package:booklab/injections.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
-import 'package:logger/logger.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -63,7 +60,9 @@ class _HomeViewState extends State<HomeView> {
                         ],
                       ),
                       const Gap(21),
-                      SearchBar(searchController: _searchController),
+                      SearchBar(
+                        searchController: _searchController,
+                      ),
                     ],
                   ),
                 ),
@@ -90,9 +89,10 @@ class _HomeViewState extends State<HomeView> {
                           children: const [
                             Gap(50),
                             Center(
-                                child: CircularProgressIndicator(
-                              color: AppColors.primaryColor,
-                            )),
+                              child: CircularProgressIndicator(
+                                color: AppColors.primaryColor,
+                              ),
+                            ),
                           ],
                         );
                       },
@@ -118,9 +118,25 @@ class _HomeViewState extends State<HomeView> {
                               topBooksWidget.add(
                                 Row(
                                   children: [
-                                    TopBooks(
-                                      amount: item.price,
-                                      image: item.imgUrl,
+                                    GestureDetector(
+                                      onTap: () => Navigator.pushNamed(
+                                        context,
+                                        RouteName.descriptionView,
+                                        arguments: BookDetailsArgs(
+                                          id: item.id,
+                                          title: item.title,
+                                          author: item.author,
+                                          imgUrl: item.imgUrl,
+                                          price: item.price,
+                                          review: item.review,
+                                          description: item.description,
+                                          source: item.source,
+                                        ),
+                                      ),
+                                      child: TopBooks(
+                                        amount: item.price,
+                                        image: item.imgUrl,
+                                      ),
                                     ),
                                     const Gap(10),
                                   ],
@@ -183,20 +199,46 @@ class _HomeViewState extends State<HomeView> {
                                                         .read<HomeViewCubit>()
                                                         .books
                                                         .map(
-                                                          (e) => Row(
-                                                            children: [
-                                                              SizedBox(
-                                                                width: 89,
-                                                                child:
-                                                                    BookCover(
-                                                                  image:
-                                                                      e.imgUrl,
-                                                                  height: 121,
-                                                                  radius: 10,
-                                                                ),
+                                                          (e) =>
+                                                              GestureDetector(
+                                                            onTap: () =>
+                                                                Navigator
+                                                                    .pushNamed(
+                                                              context,
+                                                              RouteName
+                                                                  .descriptionView,
+                                                              arguments:
+                                                                  BookDetailsArgs(
+                                                                id: e.id,
+                                                                title: e.title,
+                                                                author:
+                                                                    e.author,
+                                                                imgUrl:
+                                                                    e.imgUrl,
+                                                                price: e.price,
+                                                                review:
+                                                                    e.review,
+                                                                description: e
+                                                                    .description,
+                                                                source:
+                                                                    e.source,
                                                               ),
-                                                              const Gap(25),
-                                                            ],
+                                                            ),
+                                                            child: Row(
+                                                              children: [
+                                                                SizedBox(
+                                                                  width: 89,
+                                                                  child:
+                                                                      BookCover(
+                                                                    image: e
+                                                                        .imgUrl,
+                                                                    height: 121,
+                                                                    radius: 10,
+                                                                  ),
+                                                                ),
+                                                                const Gap(25),
+                                                              ],
+                                                            ),
                                                           ),
                                                         )
                                                   ],

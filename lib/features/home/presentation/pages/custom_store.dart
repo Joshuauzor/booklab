@@ -29,7 +29,9 @@ class _CustomStoreState extends State<CustomStore> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Gap(15),
-              SearchBar(searchController: _searchController),
+              SearchBar(
+                searchController: _searchController,
+              ),
               const Gap(15),
               TextRegular(
                 'Newest',

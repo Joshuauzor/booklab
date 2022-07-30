@@ -4,7 +4,6 @@ import 'package:booklab/features/home/domain/usecases/book_usecases.dart';
 import 'package:booklab/features/home/presentation/cubit/home_view_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:logger/logger.dart';
 
 class HomeViewCubit extends Cubit<HomeViewState> {
   HomeViewCubit({

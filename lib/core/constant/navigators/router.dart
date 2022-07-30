@@ -35,10 +35,25 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       );
 
     case RouteName.descriptionView:
+      // ignore: cast_nullable_to_non_nullable
+      final args = settings.arguments as BookDetailsArgs;
+
       return _getPageRoute(
         routeName: settings.name!,
-        viewToShow: const BookDetails(),
+        viewToShow: BookDetails(
+          params: args,
+        ),
       );
+
+    //  case RouteName.savingSummaryPage:
+    // // ignore: cast_nullable_to_non_nullable
+    // final args = settings.arguments as SavingSummaryPageArgs;
+    // return _getPageRoute(
+    //   routeName: settings.name!,
+    //   viewToShow: SavingSummarypage(
+    //     params: args,
+    //   ),
+    // );
 
     case RouteName.onlineStore:
       return _getPageRoute(

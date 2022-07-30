@@ -81,10 +81,10 @@ class CustomFormValidation {
   ]) {
     // var text = text ? '' : message;
     // return text;
-    final hasUpperCase = RegExp('(?:[A-Z])');
-    final hasLowerCase = RegExp('(?:[a-z])');
-    final hasSymbols = RegExp(r"[!@#$%^&*(),\|+=;.?':{}|<>]");
-    final hasANumber = RegExp('(?=.*?[0-9])');
+    // final hasUpperCase = RegExp('(?:[A-Z])');
+    // final hasLowerCase = RegExp('(?:[a-z])');
+    // final hasSymbols = RegExp(r"[!@#$%^&*(),\|+=;.?':{}|<>]");
+    // final hasANumber = RegExp('(?=.*?[0-9])');
     if (text == null) {
       return '';
     } else if (text.isEmpty) {
