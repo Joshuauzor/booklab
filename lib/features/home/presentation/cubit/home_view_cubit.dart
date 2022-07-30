@@ -12,7 +12,7 @@ class HomeViewCubit extends Cubit<HomeViewState> {
   }) : super(const HomeViewState.initial());
 
   final BooksUseCase booksUseCase;
-  List<Books>? books;
+  List<Books> books = [];
 
   Future<void> getBooks(
     BuildContext context,

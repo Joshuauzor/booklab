@@ -1,3 +1,5 @@
+import 'package:booklab/core/core.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class BookCover extends StatelessWidget {
@@ -14,20 +16,39 @@ class BookCover extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return CachedNetworkImage(
+      imageUrl: image,
       height: height,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(
-            image,
+      imageBuilder: (
+        context,
+        imageProvider,
+      ) {
+        return Container(
+          width: height,
+          // height: 24,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: imageProvider,
+              fit: BoxFit.cover,
+            ),
+            borderRadius: BorderRadius.all(
+              Radius.circular(
+                radius,
+              ),
+            ),
           ),
-          fit: BoxFit.cover,
-        ),
-        borderRadius: BorderRadius.all(
-          Radius.circular(
-            radius,
-          ),
-        ),
+        );
+      },
+      placeholder: (context, url) => Image.asset(
+        AppAssets.silence,
+      ),
+      errorWidget: (
+        context,
+        url,
+        error,
+      ) =>
+          Image.asset(
+        AppAssets.silence,
       ),
     );
   }

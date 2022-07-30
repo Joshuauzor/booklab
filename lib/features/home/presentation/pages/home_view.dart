@@ -83,112 +83,141 @@ class _HomeViewState extends State<HomeView> {
                           if (books.isEmpty) {
                             return Center(
                               child: TextRegular(
-                                'Empty man',
+                                'No Books Available.',
                                 fontSize: 20,
                                 fontWeight: FontWeight.w600,
                                 color: AppColors.black,
                               ),
                             );
                           } else {
+                            final topBooksWidget = <Widget>[];
+                            for (var i = 0; i < 10; i++) {
+                              final item = context
+                                  .read<HomeViewCubit>()
+                                  .books
+                                  .reversed
+                                  .toList()[i];
+                              if (i < 3) {
+                                topBooksWidget.add(
+                                  Row(
+                                    children: [
+                                      TopBooks(
+                                        amount: '#654,42',
+                                        image: item.imgUrl,
+                                      ),
+                                      const Gap(10),
+                                    ],
+                                  ),
+                                );
+                              }
+                            }
                             return Expanded(
                               child: SingleChildScrollView(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    const Gap(74),
-                                    SingleChildScrollView(
-                                      scrollDirection: Axis.horizontal,
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                          left: 25,
-                                        ),
-                                        child: Row(
-                                          children: [
-                                            GestureDetector(
-                                              onTap: () => Navigator.pushNamed(
-                                                context,
-                                                RouteName.descriptionView,
-                                              ),
-                                              child: const TopBooks(
-                                                amount: '#654,42',
-                                                image: AppAssets.silence,
-                                              ),
-                                            ),
-                                            const Gap(10),
-                                            const TopBooks(
-                                              amount: '#504,42',
-                                              image: AppAssets.bitter,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    const Gap(41),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                        left: 25,
-                                      ),
-                                      child: Column(
+                                    if (context
+                                            .read<HomeViewCubit>()
+                                            .books
+                                            .length >
+                                        1)
+                                      Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          TextRegular(
-                                            'Explore',
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                          const Gap(8),
-                                          TextRegular(
-                                            'Browse from our list of wonderful books',
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                          const Gap(28),
+                                          const Gap(32),
                                           SingleChildScrollView(
                                             scrollDirection: Axis.horizontal,
-                                            child: Row(
-                                              children: const [
-                                                SizedBox(
-                                                  width: 89,
-                                                  child: BookCover(
-                                                    image: AppAssets.silence,
-                                                    height: 121,
-                                                    radius: 10,
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(
+                                                left: 25,
+                                              ),
+                                              child: Row(
+                                                children: topBooksWidget,
+                                              ),
+                                            ),
+                                          ),
+                                          const Gap(41),
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                              left: 25,
+                                            ),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                TextRegular(
+                                                  'Explore',
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                                const Gap(8),
+                                                TextRegular(
+                                                  'Browse from our list of wonderful books',
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                                const Gap(28),
+                                                SingleChildScrollView(
+                                                  scrollDirection:
+                                                      Axis.horizontal,
+                                                  child: Row(
+                                                    children: [
+                                                      ...context
+                                                          .read<HomeViewCubit>()
+                                                          .books
+                                                          .map(
+                                                            (e) => Row(
+                                                              children: [
+                                                                SizedBox(
+                                                                  width: 89,
+                                                                  child:
+                                                                      BookCover(
+                                                                    image: e
+                                                                        .imgUrl,
+                                                                    height: 121,
+                                                                    radius: 10,
+                                                                  ),
+                                                                ),
+                                                                const Gap(25),
+                                                              ],
+                                                            ),
+                                                          )
+
+                                                      // SizedBox(
+                                                      //   width: 89,
+                                                      //   child: BookCover(
+                                                      //     image: AppAssets.bitter,
+                                                      //     height: 121,
+                                                      //     radius: 10,
+                                                      //   ),
+                                                      // ),
+                                                      // Gap(25),
+                                                      // SizedBox(
+                                                      //   width: 89,
+                                                      //   child: BookCover(
+                                                      //     image: AppAssets.bitter,
+                                                      //     height: 121,
+                                                      //     radius: 10,
+                                                      //   ),
+                                                      // ),
+                                                      // Gap(25),
+                                                      // SizedBox(
+                                                      //   width: 89,
+                                                      //   child: BookCover(
+                                                      //     image: AppAssets.bitter,
+                                                      //     height: 121,
+                                                      //     radius: 10,
+                                                      //   ),
+                                                      // ),
+                                                    ],
                                                   ),
                                                 ),
-                                                Gap(25),
-                                                SizedBox(
-                                                  width: 89,
-                                                  child: BookCover(
-                                                    image: AppAssets.bitter,
-                                                    height: 121,
-                                                    radius: 10,
-                                                  ),
-                                                ),
-                                                Gap(25),
-                                                SizedBox(
-                                                  width: 89,
-                                                  child: BookCover(
-                                                    image: AppAssets.bitter,
-                                                    height: 121,
-                                                    radius: 10,
-                                                  ),
-                                                ),
-                                                Gap(25),
-                                                SizedBox(
-                                                  width: 89,
-                                                  child: BookCover(
-                                                    image: AppAssets.bitter,
-                                                    height: 121,
-                                                    radius: 10,
-                                                  ),
-                                                ),
+                                                const Gap(30),
                                               ],
                                             ),
                                           ),
-                                          const Gap(30),
                                         ],
                                       ),
-                                    ),
                                   ],
                                 ),
                               ),
