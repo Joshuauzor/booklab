@@ -247,6 +247,8 @@ class _HomeViewState extends State<HomeView> {
             context,
             RouteName.addBook,
           );
+
+          // context.read<HomeViewCubit>().computeGraph();
         },
         backgroundColor: AppColors.white,
         child: SvgPicture.asset(AppAssets.plus),

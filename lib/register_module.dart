@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
@@ -10,7 +9,6 @@ abstract class RegisterModule {
 
   /// register [FlutterSecureStorage] package for
   ///  local storage
-  FlutterSecureStorage get flutterSecureStorage => const FlutterSecureStorage();
 
   /// register [InternetConnectionChecker] package for checking
   ///  internet connection

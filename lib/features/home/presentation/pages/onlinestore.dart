@@ -63,7 +63,6 @@ class _OnlineStoreState extends State<OnlineStore> {
               searchController: searchController,
             ),
             const Gap(14),
-
             TextRegular(
               'Collection',
               fontWeight: FontWeight.w600,
@@ -152,43 +151,6 @@ class _OnlineStoreState extends State<OnlineStore> {
                 ),
               ),
             ),
-
-            //  StaggeredGrid.count(
-            //             crossAxisCount: 2,
-            //             mainAxisSpacing: 20,
-            //             crossAxisSpacing: 10,
-            //             children: providerWatch.packagesListModel!.packages
-            //                 .map(
-            //                   (e) => PackagesPlan(
-            //                     points: e.points.toString(),
-            //                     amount: e.cost.toString(),
-            //                     isRecommended: e.recommended,
-            //                     packageId: e.id,
-            //                     submissionMode: _submissionMode,
-            //                     planCode: e.planCode,
-            //                   ),
-            //                 )
-            //                 .toList(),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //   children: const [
-            //     Expanded(
-            //       child: BookCover(
-            //         image: AppAssets.bitter,
-            //         height: 215,
-            //         radius: 10,
-            //       ),
-            //     ),
-            //     Gap(36),
-            //     Expanded(
-            //       child: BookCover(
-            //         image: AppAssets.silence,
-            //         height: 215,
-            //         radius: 10,
-            //       ),
-            //     ),
-            //   ],
-            // ),
           ],
         ),
       ),

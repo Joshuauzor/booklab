@@ -46,6 +46,24 @@ class HomeViewCubit extends Cubit<HomeViewState> {
     }
   }
 
+  void computeGraph() {
+    final map = {};
+
+    for (final element in customBooks) {
+      if (!map.containsKey(element.price)) {
+        map[element.price] = 1;
+      } else {
+        // ignore: avoid_dynamic_calls
+        map[element.price] += 1;
+        // add price and quantity in model
+        // push into array
+
+      }
+    }
+
+    Logger().d(map);
+  }
+
   Future<void> addBook({
     required BuildContext context,
     required String title,
@@ -58,7 +76,6 @@ class HomeViewCubit extends Cubit<HomeViewState> {
     await Future.delayed(
       const Duration(seconds: 2),
     );
-    Logger().d(books.length);
 
     books.add(
       BookModel(
@@ -71,6 +88,7 @@ class HomeViewCubit extends Cubit<HomeViewState> {
         description: description,
         source: '',
         isCustom: true,
+        customAmt: double.parse(price),
       ),
     );
     computeDiffStores(books);
