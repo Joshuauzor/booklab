@@ -53,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
       _emailController.text.trim(),
       'Email is required',
     );
-    final passwordError = CustomFormValidation.errorMessage(
+    final passwordError = CustomFormValidation.errorMessagePassword(
       _passwordController.text.trim(),
       'Password is required',
     );
