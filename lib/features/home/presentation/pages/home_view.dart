@@ -16,18 +16,6 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  final _searchController = TextEditingController();
-
-  @override
-  void initState() {
-    _getBooks();
-    super.initState();
-  }
-
-  Future _getBooks() async {
-    await context.read<HomeViewCubit>().getBooks(context);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,22 +47,9 @@ class _HomeViewState extends State<HomeView> {
                           )
                         ],
                       ),
-                      const Gap(21),
-                      SearchBar(
-                        searchController: _searchController,
-                      ),
                     ],
                   ),
                 ),
-                // state.maybeWhen(
-                //   orElse: () => Text('data'),
-                //   loading: () {
-                //     return CircularProgressIndicator();
-                //   },
-                //   loaded: (books) {
-                //     return Text('loading');
-                //   },
-                // )
                 BlocConsumer<HomeViewCubit, HomeViewState>(
                   listener: (context, state) {
                     state.maybeWhen(
@@ -96,8 +71,8 @@ class _HomeViewState extends State<HomeView> {
                           ],
                         );
                       },
-                      loaded: (books) {
-                        if (books.isEmpty) {
+                      loaded: (books, _) {
+                        if (context.read<HomeViewCubit>().books.isEmpty) {
                           return Center(
                             child: TextRegular(
                               'No Books Available.',
@@ -110,7 +85,7 @@ class _HomeViewState extends State<HomeView> {
                           final topBooksWidget = <Widget>[];
                           for (var i = 0; i < 10; i++) {
                             final item = context
-                                .read<HomeViewCubit>()
+                                .watch<HomeViewCubit>()
                                 .books
                                 .reversed
                                 .toList()[i];
@@ -131,11 +106,13 @@ class _HomeViewState extends State<HomeView> {
                                           review: item.review,
                                           description: item.description,
                                           source: item.source,
+                                          isCustom: item.isCustom,
                                         ),
                                       ),
                                       child: TopBooks(
                                         amount: item.price,
                                         image: item.imgUrl,
+                                        isCustom: item.isCustom,
                                       ),
                                     ),
                                     const Gap(10),
@@ -150,7 +127,7 @@ class _HomeViewState extends State<HomeView> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   if (context
-                                          .read<HomeViewCubit>()
+                                          .watch<HomeViewCubit>()
                                           .books
                                           .length >
                                       1)
@@ -266,7 +243,10 @@ class _HomeViewState extends State<HomeView> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // context.read<HomeViewCubit>().getBooks(context);
+          Navigator.pushNamed(
+            context,
+            RouteName.addBook,
+          );
         },
         backgroundColor: AppColors.white,
         child: SvgPicture.asset(AppAssets.plus),

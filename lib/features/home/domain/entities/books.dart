@@ -10,6 +10,8 @@ class Books extends Equatable {
     required this.review,
     required this.description,
     required this.source,
+    this.isCustom = false,
+    this.customAmt,
   });
 
   final int id;
@@ -20,6 +22,8 @@ class Books extends Equatable {
   final String review;
   final String description;
   final String source;
+  final bool isCustom;
+  final double? customAmt;
 
   @override
   List<Object?> get props => [

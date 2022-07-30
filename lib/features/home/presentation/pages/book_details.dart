@@ -57,7 +57,9 @@ class _BookDetailsState extends State<BookDetails> {
                     ),
                     const Gap(3),
                     TextRegular(
-                      widget.params.price,
+                      widget.params.isCustom
+                          ? 'N${widget.params.price}'
+                          : widget.params.price,
                       fontWeight: FontWeight.w700,
                       fontSize: 16,
                       fontFamily: AppFonts.roboto,
@@ -100,6 +102,7 @@ class BookDetailsArgs {
     required this.review,
     required this.description,
     required this.source,
+    this.isCustom = false,
   });
 
   final int id;
@@ -110,4 +113,5 @@ class BookDetailsArgs {
   final String review;
   final String description;
   final String source;
+  final bool isCustom;
 }

@@ -1,6 +1,8 @@
 import 'package:booklab/core/core.dart';
 import 'package:booklab/features/features.dart';
+import 'package:booklab/features/home/presentation/cubit/home_view_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppTabView extends StatefulWidget {
   const AppTabView({Key? key}) : super(key: key);
@@ -23,8 +25,12 @@ class AppTabViewState extends State<AppTabView> {
     setState(() {
       _selectedIndex = 0;
     });
-
+    _getBooks();
     super.initState();
+  }
+
+  Future _getBooks() async {
+    await context.read<HomeViewCubit>().getBooks(context);
   }
 
   @override

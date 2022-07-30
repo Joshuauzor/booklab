@@ -15,6 +15,8 @@ BookModel _$BookModelFromJson(Map<String, dynamic> json) => BookModel(
       review: json['review'] as String,
       description: json['description'] as String,
       source: json['source'] as String,
+      isCustom: json['isCustom'] as bool? ?? false,
+      customAmt: (json['customAmt'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$BookModelToJson(BookModel instance) => <String, dynamic>{
@@ -26,4 +28,6 @@ Map<String, dynamic> _$BookModelToJson(BookModel instance) => <String, dynamic>{
       'review': instance.review,
       'description': instance.description,
       'source': instance.source,
+      'isCustom': instance.isCustom,
+      'customAmt': instance.customAmt,
     };

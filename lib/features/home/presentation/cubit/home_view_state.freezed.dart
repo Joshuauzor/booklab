@@ -32,9 +32,10 @@ class _$HomeViewStateTearOff {
     return const _$LoadingHomeViewState();
   }
 
-  _$LoadedHomeViewState loaded(List<Books> books) {
+  _$LoadedHomeViewState loaded(List<Books> books, String? created) {
     return _$LoadedHomeViewState(
       books,
+      created,
     );
   }
 }
@@ -49,7 +50,7 @@ mixin _$HomeViewState {
     required TResult Function() initial,
     required TResult Function(String error) error,
     required TResult Function() loading,
-    required TResult Function(List<Books> books) loaded,
+    required TResult Function(List<Books> books, String? created) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,7 +58,7 @@ mixin _$HomeViewState {
     TResult Function()? initial,
     TResult Function(String error)? error,
     TResult Function()? loading,
-    TResult Function(List<Books> books)? loaded,
+    TResult Function(List<Books> books, String? created)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,7 +66,7 @@ mixin _$HomeViewState {
     TResult Function()? initial,
     TResult Function(String error)? error,
     TResult Function()? loading,
-    TResult Function(List<Books> books)? loaded,
+    TResult Function(List<Books> books, String? created)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -157,7 +158,7 @@ class _$_$InitialHomeViewState implements _$InitialHomeViewState {
     required TResult Function() initial,
     required TResult Function(String error) error,
     required TResult Function() loading,
-    required TResult Function(List<Books> books) loaded,
+    required TResult Function(List<Books> books, String? created) loaded,
   }) {
     return initial();
   }
@@ -168,7 +169,7 @@ class _$_$InitialHomeViewState implements _$InitialHomeViewState {
     TResult Function()? initial,
     TResult Function(String error)? error,
     TResult Function()? loading,
-    TResult Function(List<Books> books)? loaded,
+    TResult Function(List<Books> books, String? created)? loaded,
   }) {
     return initial?.call();
   }
@@ -179,7 +180,7 @@ class _$_$InitialHomeViewState implements _$InitialHomeViewState {
     TResult Function()? initial,
     TResult Function(String error)? error,
     TResult Function()? loading,
-    TResult Function(List<Books> books)? loaded,
+    TResult Function(List<Books> books, String? created)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -299,7 +300,7 @@ class _$_$ErrorHomeViewState implements _$ErrorHomeViewState {
     required TResult Function() initial,
     required TResult Function(String error) error,
     required TResult Function() loading,
-    required TResult Function(List<Books> books) loaded,
+    required TResult Function(List<Books> books, String? created) loaded,
   }) {
     return error(this.error);
   }
@@ -310,7 +311,7 @@ class _$_$ErrorHomeViewState implements _$ErrorHomeViewState {
     TResult Function()? initial,
     TResult Function(String error)? error,
     TResult Function()? loading,
-    TResult Function(List<Books> books)? loaded,
+    TResult Function(List<Books> books, String? created)? loaded,
   }) {
     return error?.call(this.error);
   }
@@ -321,7 +322,7 @@ class _$_$ErrorHomeViewState implements _$ErrorHomeViewState {
     TResult Function()? initial,
     TResult Function(String error)? error,
     TResult Function()? loading,
-    TResult Function(List<Books> books)? loaded,
+    TResult Function(List<Books> books, String? created)? loaded,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -421,7 +422,7 @@ class _$_$LoadingHomeViewState implements _$LoadingHomeViewState {
     required TResult Function() initial,
     required TResult Function(String error) error,
     required TResult Function() loading,
-    required TResult Function(List<Books> books) loaded,
+    required TResult Function(List<Books> books, String? created) loaded,
   }) {
     return loading();
   }
@@ -432,7 +433,7 @@ class _$_$LoadingHomeViewState implements _$LoadingHomeViewState {
     TResult Function()? initial,
     TResult Function(String error)? error,
     TResult Function()? loading,
-    TResult Function(List<Books> books)? loaded,
+    TResult Function(List<Books> books, String? created)? loaded,
   }) {
     return loading?.call();
   }
@@ -443,7 +444,7 @@ class _$_$LoadingHomeViewState implements _$LoadingHomeViewState {
     TResult Function()? initial,
     TResult Function(String error)? error,
     TResult Function()? loading,
-    TResult Function(List<Books> books)? loaded,
+    TResult Function(List<Books> books, String? created)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -499,7 +500,7 @@ abstract class _$$LoadedHomeViewStateCopyWith<$Res> {
   factory _$$LoadedHomeViewStateCopyWith(_$LoadedHomeViewState value,
           $Res Function(_$LoadedHomeViewState) then) =
       __$$LoadedHomeViewStateCopyWithImpl<$Res>;
-  $Res call({List<Books> books});
+  $Res call({List<Books> books, String? created});
 }
 
 /// @nodoc
@@ -516,12 +517,17 @@ class __$$LoadedHomeViewStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? books = freezed,
+    Object? created = freezed,
   }) {
     return _then(_$LoadedHomeViewState(
       books == freezed
           ? _value.books
           : books // ignore: cast_nullable_to_non_nullable
               as List<Books>,
+      created == freezed
+          ? _value.created
+          : created // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -529,14 +535,16 @@ class __$$LoadedHomeViewStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_$LoadedHomeViewState implements _$LoadedHomeViewState {
-  const _$_$LoadedHomeViewState(this.books);
+  const _$_$LoadedHomeViewState(this.books, this.created);
 
   @override
   final List<Books> books;
+  @override
+  final String? created;
 
   @override
   String toString() {
-    return 'HomeViewState.loaded(books: $books)';
+    return 'HomeViewState.loaded(books: $books, created: $created)';
   }
 
   @override
@@ -544,12 +552,15 @@ class _$_$LoadedHomeViewState implements _$LoadedHomeViewState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadedHomeViewState &&
-            const DeepCollectionEquality().equals(other.books, books));
+            const DeepCollectionEquality().equals(other.books, books) &&
+            const DeepCollectionEquality().equals(other.created, created));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(books));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(books),
+      const DeepCollectionEquality().hash(created));
 
   @JsonKey(ignore: true)
   @override
@@ -563,9 +574,9 @@ class _$_$LoadedHomeViewState implements _$LoadedHomeViewState {
     required TResult Function() initial,
     required TResult Function(String error) error,
     required TResult Function() loading,
-    required TResult Function(List<Books> books) loaded,
+    required TResult Function(List<Books> books, String? created) loaded,
   }) {
-    return loaded(books);
+    return loaded(books, created);
   }
 
   @override
@@ -574,9 +585,9 @@ class _$_$LoadedHomeViewState implements _$LoadedHomeViewState {
     TResult Function()? initial,
     TResult Function(String error)? error,
     TResult Function()? loading,
-    TResult Function(List<Books> books)? loaded,
+    TResult Function(List<Books> books, String? created)? loaded,
   }) {
-    return loaded?.call(books);
+    return loaded?.call(books, created);
   }
 
   @override
@@ -585,11 +596,11 @@ class _$_$LoadedHomeViewState implements _$LoadedHomeViewState {
     TResult Function()? initial,
     TResult Function(String error)? error,
     TResult Function()? loading,
-    TResult Function(List<Books> books)? loaded,
+    TResult Function(List<Books> books, String? created)? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(books);
+      return loaded(books, created);
     }
     return orElse();
   }
@@ -633,10 +644,11 @@ class _$_$LoadedHomeViewState implements _$LoadedHomeViewState {
 }
 
 abstract class _$LoadedHomeViewState implements HomeViewState {
-  const factory _$LoadedHomeViewState(List<Books> books) =
+  const factory _$LoadedHomeViewState(List<Books> books, String? created) =
       _$_$LoadedHomeViewState;
 
   List<Books> get books;
+  String? get created;
   @JsonKey(ignore: true)
   _$$LoadedHomeViewStateCopyWith<_$LoadedHomeViewState> get copyWith =>
       throw _privateConstructorUsedError;

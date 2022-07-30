@@ -8,10 +8,12 @@ class TopBooks extends StatelessWidget {
   const TopBooks({
     required this.amount,
     required this.image,
+    this.isCustom = false,
     Key? key,
   }) : super(key: key);
   final String amount;
   final String image;
+  final bool isCustom;
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +29,11 @@ class TopBooks extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextRegular(
-                  amount,
+                  isCustom ? 'N$amount' : amount,
                   fontWeight: FontWeight.w500,
                   color: AppColors.feintDart,
                 ),
-                const EditButton()
+                if (isCustom) const EditButton() else const SizedBox()
               ],
             ),
           ),

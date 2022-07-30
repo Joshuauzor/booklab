@@ -59,8 +59,6 @@ class BookRemoteDataSourceImpl implements BookRemoteDataSource {
           aApiKey: '2a6767e10fmshe3a21ff7dd95bb8p16e31ajsn099c5b319087',
           aApiHost: 'bookshelves.p.rapidapi.com',
         );
-        Logger().d(response.response.data);
-
         return BookListModel.fromJson(
           response.response.data as Map<String, dynamic>,
         ).list;
