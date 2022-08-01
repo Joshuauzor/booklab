@@ -1,10 +1,8 @@
 import 'dart:async';
 import 'package:booklab/app/app.dart';
 import 'package:booklab/core/core.dart';
-import 'package:booklab/features/home/domain/usecases/book_usecases.dart';
 import 'package:booklab/features/home/presentation/cubit/home_view_cubit.dart';
 import 'package:booklab/features/home/presentation/cubit/home_view_state.dart';
-import 'package:booklab/injections.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';

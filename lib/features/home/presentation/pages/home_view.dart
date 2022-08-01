@@ -243,12 +243,12 @@ class _HomeViewState extends State<HomeView> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(
-            context,
-            RouteName.addBook,
-          );
+          // Navigator.pushNamed(
+          //   context,
+          //   RouteName.addBook,
+          // );
 
-          // context.read<HomeViewCubit>().computeGraph();
+          context.read<HomeViewCubit>().computeGraph();
         },
         backgroundColor: AppColors.white,
         child: SvgPicture.asset(AppAssets.plus),

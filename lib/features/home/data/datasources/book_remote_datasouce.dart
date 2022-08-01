@@ -55,8 +55,8 @@ class BookRemoteDataSourceImpl implements BookRemoteDataSource {
       // }
       if (await networkInfo.isConnected) {
         final response = await client.getBooks(
-          aApiKey: '2a6767e10fmshe3a21ff7dd95bb8p16e31ajsn099c5b319087',
-          aApiHost: 'bookshelves.p.rapidapi.com',
+          aApiKey: dotenv.env[EnvConstants.aApiKey]!,
+          aApiHost: dotenv.env[EnvConstants.aApiHost]!,
         );
         return BookListModel.fromJson(
           response.response.data as Map<String, dynamic>,

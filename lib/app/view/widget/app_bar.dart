@@ -34,7 +34,9 @@ class MainAppBar extends StatelessWidget with PreferredSizeWidget {
               );
             }
           },
-          child: SvgPicture.asset(AppAssets.arrowBack),
+          child: SvgPicture.asset(
+            AppAssets.arrowBack,
+          ),
         ),
       ),
       title: HeaderText(
