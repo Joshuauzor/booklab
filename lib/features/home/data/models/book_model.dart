@@ -14,6 +14,8 @@ class BookModel extends Books {
     required String review,
     required String description,
     required String source,
+    bool isCustom = false,
+    double? customAmt,
   }) : super(
           id: id,
           title: title,
@@ -23,6 +25,8 @@ class BookModel extends Books {
           review: review,
           description: description,
           source: source,
+          isCustom: isCustom,
+          customAmt: customAmt,
         );
 
   factory BookModel.fromJson(Map<String, dynamic> json) =>

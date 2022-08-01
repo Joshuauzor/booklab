@@ -1,5 +1,6 @@
 import 'package:booklab/core/core.dart';
 import 'package:booklab/features/features.dart';
+import 'package:booklab/features/home/presentation/pages/add_book.dart';
 import 'package:flutter/material.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
@@ -35,9 +36,20 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       );
 
     case RouteName.descriptionView:
+      // ignore: cast_nullable_to_non_nullable
+      final args = settings.arguments as BookDetailsArgs;
+
       return _getPageRoute(
         routeName: settings.name!,
-        viewToShow: const BookDetails(),
+        viewToShow: BookDetails(
+          params: args,
+        ),
+      );
+
+    case RouteName.addBook:
+      return _getPageRoute(
+        routeName: settings.name!,
+        viewToShow: const AddBook(),
       );
 
     case RouteName.onlineStore:

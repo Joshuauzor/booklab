@@ -6,7 +6,6 @@ import 'package:booklab/features/home/domain/repositories/book_repositories.dart
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:logger/logger.dart';
 
 @LazySingleton(as: BookRepository)
 class BookRepositoryImpl implements BookRepository {

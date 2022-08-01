@@ -7,7 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 class BookDetails extends StatefulWidget {
-  const BookDetails({Key? key}) : super(key: key);
+  const BookDetails({
+    Key? key,
+    required this.params,
+  }) : super(key: key);
+  final BookDetailsArgs params;
 
   @override
   State<BookDetails> createState() => _BookDetailsState();
@@ -31,29 +35,31 @@ class _BookDetailsState extends State<BookDetails> {
               Center(
                 child: Column(
                   children: [
-                    const SizedBox(
+                    SizedBox(
                       width: 220.66,
                       child: BookCover(
-                        image: AppAssets.silence,
+                        image: widget.params.imgUrl,
                         height: 300,
                       ),
                     ),
                     const Gap(54),
                     TextRegular(
-                      'MICKEY 7',
+                      widget.params.title,
                       fontSize: 27,
                       fontFamily: AppFonts.roboto,
                     ),
                     const Gap(12),
                     TextRegular(
-                      'Edward Ashton',
+                      widget.params.author,
                       fontWeight: FontWeight.w500,
                       fontFamily: AppFonts.roboto,
                       color: AppColors.greyLight,
                     ),
                     const Gap(3),
                     TextRegular(
-                      '#100',
+                      widget.params.isCustom
+                          ? 'N${widget.params.price}'
+                          : widget.params.price,
                       fontWeight: FontWeight.w700,
                       fontSize: 16,
                       fontFamily: AppFonts.roboto,
@@ -70,17 +76,42 @@ class _BookDetailsState extends State<BookDetails> {
                 fontWeight: FontWeight.w500,
               ),
               const Gap(7),
-              const LongerText(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus odio eros adipiscing tristique. Eu, egestas massa morbi eget purus amet. Volutpat, tincidunt tincidunt mattis faucibus arcu sed. Cursus nisl sit tincidunt mattis dictum turpis. Sit nullam risus, tincidunt gravida adipiscing cras. ',
+              LongerText(
+                widget.params.description,
                 fontSize: 12,
                 fontWeight: FontWeight.w300,
               ),
               const Gap(22),
-              BusyButton(title: 'Click to buy', onpress: () {})
+              BusyButton(title: 'Click to buy', onpress: () {}),
+              const Gap(42),
             ],
           ),
         ),
       ),
     );
   }
+}
+
+class BookDetailsArgs {
+  BookDetailsArgs({
+    required this.id,
+    required this.title,
+    required this.author,
+    required this.imgUrl,
+    required this.price,
+    required this.review,
+    required this.description,
+    required this.source,
+    this.isCustom = false,
+  });
+
+  final int id;
+  final String title;
+  final String author;
+  final String imgUrl;
+  final String price;
+  final String review;
+  final String description;
+  final String source;
+  final bool isCustom;
 }

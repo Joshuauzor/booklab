@@ -8,4 +8,5 @@ class RouteName {
   static const String onlineStore = 'onlineStore';
   static const String customStore = 'customStore';
   static const String chartView = 'chartView';
+  static const String addBook = 'addBook';
 }

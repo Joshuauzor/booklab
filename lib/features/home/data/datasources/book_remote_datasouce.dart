@@ -7,7 +7,6 @@ import 'package:dio/dio.dart';
 import 'package:dio_smart_retry/dio_smart_retry.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:injectable/injectable.dart';
-import 'package:logger/logger.dart';
 
 // ignore: one_member_abstracts
 abstract class BookRemoteDataSource {
@@ -20,7 +19,7 @@ abstract class BookRemoteDataSource {
 class BookRemoteDataSourceImpl implements BookRemoteDataSource {
   BookRemoteDataSourceImpl({
     required this.networkInfo,
-    required this.localDataStorage,
+    // required this.localDataStorage,
     required this.dio,
   }) : super() {
     dio.interceptors.add(
@@ -41,7 +40,7 @@ class BookRemoteDataSourceImpl implements BookRemoteDataSource {
   }
 
   final NetworkInfo networkInfo;
-  final LocalDataStorage localDataStorage;
+  // final LocalDataStorage localDataStorage;
   final Dio dio;
   late final BookApiClient client;
 
@@ -56,11 +55,9 @@ class BookRemoteDataSourceImpl implements BookRemoteDataSource {
       // }
       if (await networkInfo.isConnected) {
         final response = await client.getBooks(
-          aApiKey: '2a6767e10fmshe3a21ff7dd95bb8p16e31ajsn099c5b319087',
-          aApiHost: 'bookshelves.p.rapidapi.com',
+          aApiKey: dotenv.env[EnvConstants.aApiKey]!,
+          aApiHost: dotenv.env[EnvConstants.aApiHost]!,
         );
-        Logger().d(response.response.data);
-
         return BookListModel.fromJson(
           response.response.data as Map<String, dynamic>,
         ).list;
